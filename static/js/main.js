@@ -50,15 +50,20 @@ form.onSubmit = async e => {
 */
 
 
-/*const form = document.querySelector('#formH')
-form.addEventListener('onsubmit', e => {
+const form = document.querySelector('#formH')
+form.addEventListener('submit', e => {
     e.preventDefault()
     const bdate = form['bdate'].value
-    if (bdate < '2008-07-25' && bdate > '2016-07-25'){
-	console.log("fecha fuera de rango")
-    }
     console.log(bdate)
-}) */
+    const date1 = new Date(bdate)
+    const date2 = new Date('2008-07-25')
+    const date3 = new Date('2016-07-25')
+    console.log(date1)
+    if (date1 < date2 || date1 > date3){
+        alert("Fecha no Válida o Fuera de Rango")
+    }
+    
+}) 
 
 
 

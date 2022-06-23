@@ -12,6 +12,7 @@ import openpyxl
 import csv
 from io import StringIO
 import datetime
+import time
 #UPLOAD_FOLDER = "C:/Users/jazyi/flask-projects/planVacacional2.0/QRimages"
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
@@ -121,15 +122,19 @@ def delete(id):
 
 
 def validate_date(d):
-    l = []
-    sp = d.split('-')
-    for i in sp:
-        l.append(int(i))
-        
-    date1 = datetime.datetime(l)
+    date1 = datetime.datetime.strptime(d, "%Y-%m-%d")
+    #print(date1)
+    #print(type(date1))
+    #date1m = datetime.datetime(date1)
+    #print(date1m)
     date2 = datetime.datetime(2008,7,25)
+    #print(type(date2))
+    #print(date2)
     date3 = datetime.datetime(2016,7,25)
-    print("%s, %s ,%s", date1, date2, date3)
+    if date1 < date2 or date1 > date3:
+        print("fuera de rango")
+        return True
+    #print("%s, %s ,%s", date1, date2, date3)
 
 
 
@@ -137,15 +142,18 @@ def validate_date(d):
 
 @app.route('/registroH/<int:id>', methods=['GET', 'POST'])
 def registroH(id):
+    error = None
     if request.method == 'GET':
         return render_template('registroH.html')
     elif request.method == 'POST':
         name = request.form['name']
         bdate = request.form['bdate']
-        validate_date(bdate)
+        print(validate_date(bdate))
+        if validate_date(bdate) == True:
+            error = "Fecha fuera de Rango"
+            return render_template('errors.html', error=error)
+            #return redirect(url_for('listado'))
         print(bdate)
-        if bdate < '2008-07-25' and bdate > '2016-07-25':
-            print("Error")
 
         tblood = request.form['tblood']
         allergies = request.form['allergies']
