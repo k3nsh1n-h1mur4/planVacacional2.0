@@ -1,0 +1,38 @@
+{% extends '_header.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+         <div class="row">
+          <div class="col">
+            <table class="table table-ligth">
+              <thead>
+                  <tr>
+                   <th scope="col">ID</th>
+                   <th scope="col">Nombre</th>
+                   <th scope="col">Fecha de Nacimiento</th>
+		               <th scope="col">Tipo de Sangre</th>
+		               <th scope="col">Alergía(s)</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for ctx in ctx %}
+                  <tr>
+                      <th scope="row">{{ ctx.0 }}</th>
+                      <td>{{ ctx[2] }}</td>
+                      <td>{{ ctx[3] }}</td>
+		                  <td>{{ ctx[4] }}</td>
+		                  <td>{{ ctx[5] }}</td>
+                      <td>
+			  <!-- <a href="/deleteH/{{ ctx.0 }}" class="btn btn-danger">Eliminar Registro</a> -->
+			                    <a href="/qrcode/{{ ctx.0 }}" class="btn btn-secondary">QRCODE</a>
+                      </td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+            </table>
+          </div>
+         </div>
+        </div>
+	{% endblock %}

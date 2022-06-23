@@ -1,0 +1,7 @@
+CREATE DATABASE planvacacional;
+
+\c planvacacional;
+
+CREATE TABLE regem("id serial PRIMARY KEY, matricula varchar(255) not null, name varchar(255) not null, adscription varchar(255) not null, category varchar(255) not null, nafil varchar(255) not null, cellnumber varchar(255) not null, address varchar(255) not null, created_at timestamp default current_timestamp");
+
+CREATE TABLE regem(id SERIAL PRIMARY KEY, regem_id INT NOT NULL, name VARCHAR(255) NOT NULL, bdate VARCHAR(10) NOT NULL, tblood VARCHAR(10) NOT NULL, allergies VARCHAR(100), created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, CONSTRAINT fk_regem FOREIGN KEY(regem_id) REFERENCES regem(id) ON DELETE CASCADE");

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<title>Listado General</title>
+
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/styles.css') }}">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    </head>
+    <body>
+	<div class="container mt-5">
+	 <div class="row">
+	  <div class="col">
+	    <table class="table table-ligth">
+	      <thead>
+		  <tr>
+		   <th scope="col">ID</th>
+		   <th scope="col">Matrícula</th>
+		   <th scope="col">Nombre</th>
+		  </tr>
+	      </thead>
+	      <tbody>
+		  {% for ctx in ctx %}
+		  <tr>
+		      <th scope="row">{{ ctx.0 }}</th>
+		      <td>{{ ctx[1] }}</td>
+		      <td>{{ ctx[2] }}</td>
+		      <td>
+			  <a href="/registroH/{{ ctx.0 }}" class="btn btn-warning">Registro Hijo</a>
+			  <a href="/delete/{{ ctx.0 }}" class="btn btn-danger">Eliminar Registro</a>
+		      </td>
+		  </tr>
+		  {% endfor %}
+	      </tbody>
+	    </table>
+	  </div>
+	 </div>
+	</div>
+    </body>
+
+</html>

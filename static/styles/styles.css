@@ -1,0 +1,61 @@
+.sntsslogo img{
+    height: 40%;
+    width: 40%;
+    margin-left: 20px;
+}
+
+
+.header {
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.sntss {
+    background: #94c973;
+}
+
+
+.header p {
+    font-size: 20px;
+    font-family: Arial;
+    color: #fff;
+    text-align: center;
+
+}
+
+
+.contMain {
+    display: grid;
+    gap: 20px;
+}
+
+img {
+    width: 70%;
+    height: 100%;
+}
+
+.contBanner {
+   background-color: black; 
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.card {
+    width: 80%;
+    padding: 20px;   
+}
+
+.card input {
+    background-color: #EEEDE7;
+}
+
+.card input[type=submit] {
+    background-color: blue;
+}
