@@ -12,12 +12,8 @@ import openpyxl
 import csv
 from io import StringIO
 import datetime
-<<<<<<< HEAD
 import time
-#UPLOAD_FOLDER = "C:/Users/jazyi/flask-projects/planVacacional2.0/QRimages"
-=======
 
->>>>>>> d999d10562af2c5a02ca289ca1c0034d9d5d0251
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 #app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -36,7 +32,7 @@ port = '5432'
 def get_connect():
     try:
         conn = connect(
-            "dbname=planvacacional host=localhost user=postgres password=Z4dk13l2017** port=5432")
+            "dbname=dbname host=host user=user password=paassword port=5432")
         print('connected')
         return conn
     except:
