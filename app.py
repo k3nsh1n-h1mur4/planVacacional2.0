@@ -12,8 +12,12 @@ import openpyxl
 import csv
 from io import StringIO
 import datetime
+<<<<<<< HEAD
 import time
 #UPLOAD_FOLDER = "C:/Users/jazyi/flask-projects/planVacacional2.0/QRimages"
+=======
+
+>>>>>>> d999d10562af2c5a02ca289ca1c0034d9d5d0251
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 #app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -22,10 +26,10 @@ app = Flask(__name__, static_folder='static', template_folder='templates')
 qrcode = QRcode(app)
 
 
-database = 'planvacacional'
-host = 'LAPTOP-5NJQLSI6'
-user = 'postgres'
-password = 'Z4dk13l2017**'
+database = ''
+host = ''
+user = ''
+password = ''
 port = '5432'
 
 
