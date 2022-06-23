@@ -22,9 +22,9 @@ qrcode = QRcode(app)
 
 
 database = 'planvacacional'
-host = 'LAPTOP-5NJQLSI6'
-user = 'postgres'
-password = 'Z4dk13l2017**'
+host = ''
+user = ''
+password = ''
 port = '5432'
 
 
