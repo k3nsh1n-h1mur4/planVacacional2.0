@@ -12,12 +12,12 @@ import openpyxl
 import csv
 from io import StringIO
 import datetime
-import time
+import os
 
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 #app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['SECRET_KEY'] = ''
+app.config['SECRET_KEY'] = os.urandom(16)
 
 
 qrcode = QRcode(app)
