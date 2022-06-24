@@ -2,7 +2,7 @@
 from hashlib import new
 from urllib import response
 import psycopg2
-from flask import Flask, render_template, request, jsonify, url_for, redirect, make_response
+from flask import Flask, render_template, request, jsonify, url_for, redirect, make_response, flash
 from psycopg2 import connect, extras
 from flask_qrcode import QRcode
 from reportlab.pdfgen import canvas
@@ -17,6 +17,7 @@ import time
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 #app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['SECRET_KEY'] = 'Isaac'
 
 
 qrcode = QRcode(app)
@@ -32,7 +33,7 @@ port = '5432'
 def get_connect():
     try:
         conn = connect(
-            "dbname=dbname host=host user=user password=paassword port=5432")
+            "dbname=planvacacional host=127.0.0.1 user=k3nsh1n port=5432")
         print('connected')
         return conn
     except:
@@ -41,13 +42,13 @@ def get_connect():
 
 @app.route('/')
 def index():
-    """con = get_connect()
+    con = get_connect()
     cur = con.cursor(cursor_factory=extras.DictCursor)
     cur.execute("CREATE TABLE regEm(id serial PRIMARY KEY, matricula varchar(255) not null, name varchar(255) not null, adscription varchar(255) not null, category varchar(255) not null, nafil varchar(255) not null, cellnumber varchar(255) not null, address varchar(255) not null, created_at timestamp default current_timestamp)");
     con.commit()
     cur.close()
     con.close()
-    print(con)"""
+    print(con)
     return render_template('index.html')
 
 
@@ -150,8 +151,10 @@ def registroH(id):
         bdate = request.form['bdate']
         print(validate_date(bdate))
         if validate_date(bdate) == True:
-            error = "Fecha fuera de Rango"
-            return render_template('errors.html', error=error)
+            flash("Fecha no Válida o Fuera de Rango...")
+            #error = "Fecha fuera de Rango"
+            return render_template('registroH.html')
+            #return render_template('errors.html', error=error)
             #return redirect(url_for('listado'))
         print(bdate)
 

@@ -59,3 +59,10 @@ img {
 .card input[type=submit] {
     background-color: blue;
 }
+
+
+.message {
+    background-color: red;
+    color: white;
+    font-size: 20px;
+}
