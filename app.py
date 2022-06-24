@@ -17,7 +17,7 @@ import time
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 #app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['SECRET_KEY'] = 'Isaac'
+app.config['SECRET_KEY'] = ''
 
 
 qrcode = QRcode(app)
@@ -33,7 +33,7 @@ port = '5432'
 def get_connect():
     try:
         conn = connect(
-            "dbname=planvacacional host=127.0.0.1 user=k3nsh1n port=5432")
+            "dbname= host=127.0.0.1 user= port=5432")
         print('connected')
         return conn
     except:
