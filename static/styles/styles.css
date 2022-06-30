@@ -67,6 +67,7 @@ img {
 }
 
 
+<<<<<<< HEAD
 
 ul {
     list-style-type: none;
@@ -100,4 +101,10 @@ li a {
     color: #fff;
     text-align: center;
     font-size:30px;
+=======
+.message {
+    background-color: red;
+    color: white;
+    font-size: 20px;
+>>>>>>> fb4079de3e88cde19760fc90a9ff8d78fb6aa5e5
 }
