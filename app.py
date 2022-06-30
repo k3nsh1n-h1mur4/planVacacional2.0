@@ -1,14 +1,9 @@
 
-from hashlib import new
-import mimetypes
 from os import urandom
 from urllib import response
 import psycopg2
-<<<<<<< HEAD
 from flask import Flask, render_template, request, jsonify, url_for, redirect, make_response, send_file, flash, jsonify
-=======
 from flask import Flask, render_template, request, jsonify, url_for, redirect, make_response, flash
->>>>>>> fb4079de3e88cde19760fc90a9ff8d78fb6aa5e5
 from psycopg2 import connect, extras
 from flask_qrcode import QRcode
 from reportlab.pdfgen import canvas
@@ -18,7 +13,6 @@ import openpyxl
 import csv
 from io import StringIO
 import datetime
-<<<<<<< HEAD
 
 import time
 import base64
@@ -29,14 +23,12 @@ app = Flask(__name__, static_folder='static', template_folder='templates')
 app.config['SECRET_KEY'] = urandom(16)
 
 KEY = Fernet.generate_key()
-=======
 import os
 
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 #app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SECRET_KEY'] = os.urandom(16)
->>>>>>> fb4079de3e88cde19760fc90a9ff8d78fb6aa5e5
 
 
 qrcode = QRcode(app)
@@ -130,24 +122,18 @@ def login():
 
 @app.route('/')
 def index():
-<<<<<<< HEAD
     n = request.get_json()
     """con = get_connect()
-=======
     con = get_connect()
->>>>>>> fb4079de3e88cde19760fc90a9ff8d78fb6aa5e5
     cur = con.cursor(cursor_factory=extras.DictCursor)
     cur.execute("CREATE TABLE regEm(id serial PRIMARY KEY, matricula varchar(255) not null, name varchar(255) not null, adscription varchar(255) not null, category varchar(255) not null, nafil varchar(255) not null, cellnumber varchar(255) not null, address varchar(255) not null, created_at timestamp default current_timestamp)");
     con.commit()
     cur.close()
     con.close()
-<<<<<<< HEAD
     print(con)"""
     return jsonify(n)
-=======
     print(con)
     return render_template('index.html')
->>>>>>> fb4079de3e88cde19760fc90a9ff8d78fb6aa5e5
 
 
 @app.route('/registro', methods=['GET', 'POST'])
@@ -245,17 +231,14 @@ def registroH(id):
         bdate = request.form['bdate']
         print(validate_date(bdate))
         if validate_date(bdate) == True:
-<<<<<<< HEAD
             error = "Fecha fuera de Rango"
             return render_template('errors.html', error=error)
             # return redirect(url_for('listado'))
-=======
             flash("Fecha no Válida o Fuera de Rango...")
             #error = "Fecha fuera de Rango"
             return render_template('registroH.html')
             #return render_template('errors.html', error=error)
             #return redirect(url_for('listado'))
->>>>>>> fb4079de3e88cde19760fc90a9ff8d78fb6aa5e5
         print(bdate)
 
         tblood = request.form['tblood']
