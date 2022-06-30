@@ -33,9 +33,16 @@
         </div> 
 
 
+        <div class="navigation">
+            <ul>
+                <li><a href="{{ url_for('listado') }}" class="btn btn-warning">Listado General</a></li>
+               <li><a href="{{ url_for('listadoH') }}" class="btn btn-warning">Listado General Hijo(s)</a></li>
+            </ul>
+        </div>
+
         <div class="main">
             <div class="card">
-               <form method="POST" id="form">
+               <form method="POST" id="formMain">
                     <label for="matricula">Matrícula</label>
                     <input type="text" name="matricula" class="form-control">
 

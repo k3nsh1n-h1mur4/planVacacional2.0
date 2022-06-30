@@ -31,6 +31,13 @@
                 <img src="{{ url_for('static', filename='images/planimage.png') }}" alt="planimage" >
             </div>
         </div>
+        <div class="navigation">
+            <ul>
+                <li><a href="{{ url_for('registro') }}" class="btn btn-warning">Nuevo Registro</a></li>
+               <li><a href="{{ url_for('listado') }}" class="btn btn-warning">Listado General</a></li>
+            </ul>
+        </div>
+
 
 
         {% block content %}{% endblock %}
